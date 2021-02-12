@@ -5810,12 +5810,12 @@ GameObject:
   - component: {fileID: 1245769795}
   - component: {fileID: 1245769794}
   - component: {fileID: 1245769793}
-  - component: {fileID: 1245769792}
   - component: {fileID: 1245769791}
   - component: {fileID: 1245769796}
+  - component: {fileID: 1245769792}
   m_Layer: 0
-  m_Name: 1
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5840,23 +5840,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &1245769792
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!114 &1245769792
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245769790}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.010225838, y: -0.20230478}
-  serializedVersion: 2
-  m_Radius: 0.06640189
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd7698133ac5e5428c98151f0a47da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!70 &1245769793
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5932,9 +5929,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245769790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.93, y: -2.56, z: 0}
+  m_LocalPosition: {x: 12.08, y: -2.755, z: 0}
   m_LocalScale: {x: 5.5, y: 5.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1760793536}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5950,9 +5948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc4aeaa5e9476f4f9c6e7ac69b7686a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despl: 
-  maxspeed: 5
-  speed: 0
+  despl: 0000
+  maxspeed: 10
+  speed: 10
   FDsalto: 0
   salto: 0
   movement: 1
@@ -6100,7 +6098,7 @@ GameObject:
   - component: {fileID: 1479566316}
   m_Layer: 0
   m_Name: Area interactuable
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6179,7 +6177,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1479566313}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 13b926d2298234b4da979866250fce69, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6288,3 +6286,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1760793535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760793536}
+  - component: {fileID: 1760793538}
+  - component: {fileID: 1760793537}
+  m_Layer: 0
+  m_Name: TKSL
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760793536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760793535}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0388, y: -0.2231, z: -0.7470703}
+  m_LocalScale: {x: 0.18181817, y: 0.18181817, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245769795}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760793537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760793535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962c8dea896b04149984c47ea1f5e236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerobj: {fileID: 0}
+--- !u!58 &1760793538
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760793535}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.24232247, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25767758
