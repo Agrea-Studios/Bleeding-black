@@ -6,9 +6,10 @@ public class movimiento : MonoBehaviour
 {
     private Rigidbody2D RB2D;
     private GameObject playerG;
+    private GameObject[] GOI = new GameObject[10];
     public RiasC player; 
-    
-    // Start is called before the first frame update
+  
+    // Start is called dtbefore the first frame update
     void Start()
     {
         playerG = GameObject.Find("player");
@@ -25,6 +26,7 @@ public class movimiento : MonoBehaviour
             hinput = 0;
         }
 
+        //player.MV[1] = player.speed
         RB2D.AddForce(Vector2.right * player.speed * hinput);
         if(hinput > 0.1f){
             transform.localScale = new Vector3 (5.5f, 5.5f, 1f);
@@ -33,34 +35,19 @@ public class movimiento : MonoBehaviour
         if(hinput < -0.1f){
             transform.localScale = new Vector3 (5.5f, 5.5f, 1f);
         }
+        
 
-          if (Input.GetKey(KeyCode.A))
-        {
-            player.despl = true;
-        }
+        player.despl[1] = (Input.GetKey(KeyCode.A)) ? true : false ;
+        player.despl[2] = (Input.GetKey(KeyCode.D)) ? true : false ;
 
-        else
-        {
-            player.despl = false;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            player.despl2 = true;
-        }
-
-        else
-        {
-            player.despl2 = false;
-        }
 
         //para evitar congelamiento en el aire y para evitar friccion 
 
         if(player.TKSL == false)
         {
-            if (player.despl2 == false)
+            if (player.despl[2] == false)
             {
-                if (player.despl == true)
+                if (player.despl[1] == true)
                 {
                     RB2D.constraints = RigidbodyConstraints2D.None;
                     RB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -73,9 +60,9 @@ public class movimiento : MonoBehaviour
                 }
             }
 
-            if (player.despl == false)
+            if (player.despl[1] == false)
             {
-                if (player.despl2 == true)
+                if (player.despl[2] == true)
                 {
                     RB2D.constraints = RigidbodyConstraints2D.None;
                     RB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -93,9 +80,9 @@ public class movimiento : MonoBehaviour
         else
         {
             //para la tecla A
-            if (player.despl == false)
+            if (player.despl[1] == false)
             {
-                if (player.despl2 == true)
+                if (player.despl[2] == true)
                 {
                     RB2D.constraints = RigidbodyConstraints2D.None;
                     RB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -108,7 +95,7 @@ public class movimiento : MonoBehaviour
                 }
 
             }
-            if (player.despl == true)
+            if (player.despl[1] == true)
             {
 
                 RB2D.constraints = RigidbodyConstraints2D.None;
@@ -116,9 +103,9 @@ public class movimiento : MonoBehaviour
 
             }
             // para la tecla D
-            if (player.despl2 == false)
+            if (player.despl[2] == false)
             {
-                if (player.despl == true)
+                if (player.despl[1] == true)
                 {
                     RB2D.constraints = RigidbodyConstraints2D.None;
                     RB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -135,7 +122,7 @@ public class movimiento : MonoBehaviour
 
         }
 
-        if (player.despl2 == true)
+        if (player.despl[2] == true)
         {
 
             RB2D.constraints = RigidbodyConstraints2D.None;

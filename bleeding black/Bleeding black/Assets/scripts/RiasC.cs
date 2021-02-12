@@ -4,17 +4,21 @@ using UnityEngine;
   
   public class RiasC : MonoBehaviour
     {
-        public string name;
+   
         
 
         //variales de movimiento
+  
+        //variables de desplazamiento para congelar constrains
+        public bool[] despl = new bool[2];
         public float maxspeed = 5f;
         public float speed = 0f;
         public float FDsalto = 0f;
         public bool salto;
         public bool movement = true;
-        public bool despl;
-        public bool despl2;
+
+       
+       
         public bool TKSL;
 
 
