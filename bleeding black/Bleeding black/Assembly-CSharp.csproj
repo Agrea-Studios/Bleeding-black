@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\FuncionesRias.cs" />
      <Compile Include="Assets\scripts\RiasC.cs" />
      <Compile Include="Assets\scripts\TKSL.cs" />
      <Compile Include="Assets\scripts\movimiento.cs" />

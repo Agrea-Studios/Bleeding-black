@@ -7,24 +7,27 @@ public class movimiento : MonoBehaviour
     private Rigidbody2D RB2D;
     private GameObject playerG;
     public RiasC player; 
+    public Animator Animation;
   
     // Start is called dtbefore the first frame update
     void Start()
     {
         playerG = GameObject.Find("Player");
-        RB2D = GetComponentInParent<Rigidbody2D>();
         player = playerG.GetComponentInParent<RiasC>();
+        RB2D = playerG.GetComponentInParent<Rigidbody2D>();
+        Animation = playerG.GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         
         Animation.SetFloat("speed", Mathf.Abs(RB2D.velocity.x));
-        Animation.SetBool("player.TKSL", player.TKSL);
+        Animation.SetBool("TKSL", player.TKSL);
+   
 
-        */
+        
         float hinput = Input.GetAxis("Horizontal");
         if(!player.movement){
             hinput = 0;
@@ -34,9 +37,11 @@ public class movimiento : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && player.TKSL)
         {
             player.salto = true;
+            RB2D.AddForce(Vector2.up * player.FDsalto);
         }
+     
 
-        //player.MV[1] = player.speed
+
         RB2D.AddForce(Vector2.right * player.speed * hinput);
         if(hinput > 0.1f){
             transform.localScale = new Vector3 (-5.5f, 5.5f, 1f);

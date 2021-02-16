@@ -5,7 +5,12 @@ using UnityEngine;
   public class RiasC : MonoBehaviour
     {
    
-        
+        //variables de control
+       public int[] vcontrol = new int[2] {2, 3};
+       public int dinero;
+       public bool cdm;
+       public bool Cdv;
+
 
         //variales de movimiento
   
