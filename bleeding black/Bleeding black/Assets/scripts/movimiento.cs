@@ -8,7 +8,7 @@ public class movimiento : MonoBehaviour
     private GameObject playerG;
     public RiasC player; 
     public Animator Animation;
-  
+
     // Start is called dtbefore the first frame update
     void Start()
     {
@@ -16,6 +16,7 @@ public class movimiento : MonoBehaviour
         player = playerG.GetComponentInParent<RiasC>();
         RB2D = playerG.GetComponentInParent<Rigidbody2D>();
         Animation = playerG.GetComponentInParent<Animator>();
+    
     }
 
     // Update is called once per frame
@@ -42,25 +43,35 @@ public class movimiento : MonoBehaviour
      
 
 
-        RB2D.AddForce(Vector2.right * player.speed * hinput);
+        
+       
         if(hinput > 0.1f){
             transform.localScale = new Vector3 (-5.5f, 5.5f, 1f);
+             RB2D.velocity = new Vector2(player.speed, RB2D.velocity.y);
+
         }
 
         if(hinput < -0.1f){
             transform.localScale = new Vector3 (5.5f, 5.5f, 1f);
+             RB2D.velocity = new Vector2(-player.maxspeed, RB2D.velocity.y);
         }
-        
 
-        if(RB2D.velocity.x > player.maxspeed){
-            RB2D.velocity = new Vector2(player.maxspeed, RB2D.velocity.y);
-        }
+      
+
 
         player.despl[0] = (Input.GetKey(KeyCode.A)) ? true : false ;
         player.despl[1] = (Input.GetKey(KeyCode.D)) ? true : false ;
 
+       
+      
+
+
 
         //para evitar congelamiento en el aire 
+
+        if(player.despl[0] && player.despl[1] == true){
+           
+        }
 
         if(player.TKSL == false)
         {

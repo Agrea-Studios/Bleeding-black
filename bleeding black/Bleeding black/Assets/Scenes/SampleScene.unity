@@ -6251,8 +6251,8 @@ MonoBehaviour:
   cdm: 0
   Cdv: 0
   despl: 0000
-  maxspeed: 10
-  speed: 10
+  maxspeed: 4
+  speed: 3.7
   FDsalto: 5
   salto: 0
   movement: 1
